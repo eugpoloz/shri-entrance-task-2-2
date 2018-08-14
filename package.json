@@ -1,0 +1,24 @@
+{
+  "name": "shri-entrance-task-2-2",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-concat": "latest",
+    "gulp-connect": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-pug": "latest",
+    "gulp-stylus": "latest",
+    "gulp-uglify": "latest"
+  },
+  "dependencies": {
+    "fancy-log": "^1.3.2"
+  }
+}
