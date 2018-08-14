@@ -8,8 +8,10 @@
   },
   "author": "",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "gulp": "latest",
+    "browser-sync": "latest",
+    "fancy-log": "^1.3.2",
     "gulp-autoprefixer": "latest",
     "gulp-concat": "latest",
     "gulp-connect": "latest",
@@ -17,8 +19,5 @@
     "gulp-pug": "latest",
     "gulp-stylus": "latest",
     "gulp-uglify": "latest"
-  },
-  "dependencies": {
-    "fancy-log": "^1.3.2"
   }
 }
