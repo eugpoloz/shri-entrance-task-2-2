@@ -1,3 +1,24 @@
+//- mixins
+mixin link(title)
+  a(href="#" title=title)&attributes(attributes)= title
+  
+mixin link_main(title)
+  +link(title)(class="main-nav__link")
+  
+mixin link_footer(title)
+  +link(title)(class="footer__link")
+  
+mixin item(name, info, icon)
+  div.item&attributes(attributes)
+    i.item__icon= icon
+    h3.item__name= name
+    span.info.info--item= info
+    
+mixin item_big(name, info, icon)
+  +item(name, info, icon)(class="item--big")
+    
+//- code
+
 doctype html
 html
   head
@@ -6,19 +27,59 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(name="developer" content="Evgenia Polozova")
     title Яндекс Дом
-    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" type="text/css")
     link(rel="stylesheet" href="main.css" type="text/css")
-
   body
-    header.header 
-      div.container Hi?
+    header.header
+      .container.container--centered
+        a.header__logo(href="#" title="Яндекс Дом")
+          img(src="assets/logo@1x.png" srcset="assets/logo@1x.png, assets/logo@2x.png 2x" alt="Яндекс Дом")
+        nav.main-nav
+          +link_main("Сводка")
+          +link_main("Устройства")
+          +link_main("Сценарии")
     section.main
-      div.container
+      .container.container--grid
+        article.main__part.main__part--small.details
+          h2.main__heading
+            | Главное
+          .details__container
+            .details__main
+              .details__header
+                h1.details__greeting
+                  | Привет, Геннадий!
+                p.details__info Двери и окна закрыты, сигнализация включена.
+              .weather__container
+                .weather
+                  span.info
+                    | Дома:
+                  p.weather__temp
+                    | +23
+                .weather
+                  span.info
+                    | За окном:
+                  p.weather__temp
+                    | +19
+            .details__scripts
+              +item_big("Philips Cooler", "Начнет охлаждать в 16:30")
+              +item_big("Xiaomi Yeelight LED Smart Bulb", "Включится в 17:00")
+        article.main__part.main__part--small.scripts
+          h2.main__heading
+            | Избранные сценарии
+        article.main__part.main__part--big.devices
+          h2.main__heading
+            | Избранные девайсы
+            nav.subnav
+              .subnav__pill.subnav__pill--active Все
+              .subnav__pill Кухня
+              .subnav__pill Зал
+              .subnav__pill Лампочки
+              .subnav__pill Камеры
     footer.footer
-      div.container
-        a.footer__link(href="#" title="Помощь" target="_blank") Помощь
-        a.footer__link(href="#" title="Обратная связь" target="_blank") Обратная связь
-        a.footer__link(href="#" title="Разработчикам" target="_blank") Разработчикам
-        a.footer__link(href="#" title="Условия использования" target="_blank") Условия использования
-      
+      .container.container--centered
+        +link_footer("Помощь")
+        +link_footer("Обратная связь")
+        +link_footer("Разработчикам")
+        +link_footer("Условия использования")
+        span.footer__copyright
+          | © 2001–2017   ООО «Яндекс»
     script(src="main.js")

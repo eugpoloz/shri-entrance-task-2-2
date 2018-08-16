@@ -107,6 +107,11 @@ a:hover {
       align-self: stretch;
 }
 
+.info {
+  padding: 0.4rem 0;
+  color: var(--font-color-secondary);
+}
+
 /* главное меню */
 .main-nav {
   padding-left: 5.2rem;
@@ -205,7 +210,7 @@ a:hover {
 }
 
 .details__main > *:not(:first-of-type) {
-  margin-top: 2.5rem;
+  margin-top: 2.1rem;
 }
 
 /* блок "главное" — погода */
@@ -221,11 +226,6 @@ a:hover {
 
 .weather:not(:first-of-type) {
   margin-left: 1.8rem;
-}
-
-.weather__heading {
-  padding-bottom: 0.4rem;
-  color: var(--font-color-secondary);
 }
 
 .weather__temp {
@@ -249,6 +249,10 @@ a:hover {
 .details__scripts {
   width: 200px;
   margin-left: 2.5rem;
+}
+
+.details__scripts > div:not(:first-of-type) {
+  margin-top: 1.5rem;
 }
 
 .subnav {
@@ -305,6 +309,40 @@ a:hover {
   background-color: var(--bg-color-accent);
   -webkit-box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0);
           box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0);
+}
+
+/* плашки */
+.item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  width: 20rem;
+  height: 10rem;
+  padding: 1.4rem;
+  padding-bottom: 1rem;
+  background-color: var(--bg-color-main);
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.item--big {
+  height: 12rem;
+}
+
+/* .item__icon {
+} */
+
+.item__name {
+  margin-top: auto;
+  font-weight: 700;
+}
+
+.info--item {
+  font-size: 1.2rem;
 }
 
 /* футер */
