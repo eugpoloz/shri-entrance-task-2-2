@@ -17,11 +17,20 @@ html {
 }
 
 body {
+  /* variables */
+  --font-color-main: #333333;
+  --font-color-secondary: #858585;
+  --bg-color-main: #f7f7f7;
+  --bg-color-accent: #ffd93e;
+
+  /* declarations */
+  display: flex;
+  flex-flow: column nowrap;
   font-family: Arial, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Helvetica Neue", sans-serif;
   font-size: 1.4rem;
-  display: flex;
-  flex-flow: column nowrap;
+  line-height: 1.143;
+  color: var(--font-color-main);
 }
 
 a,
@@ -93,7 +102,7 @@ a:hover {
 .main-nav__link:active,
 .main-nav__link:focus,
 .main-nav__link:hover {
-  color: rgba(51, 51, 51, 1);
+  color: var(--font-color-main);
 }
 
 /* контент */
@@ -112,31 +121,30 @@ a:hover {
 }
 
 .main__heading {
-  padding-bottom: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding-bottom: 2rem;
   font-weight: bold;
   font-size: 1.8rem;
   line-height: 1.167;
-  color: #333333;
 }
 
 /* блок "главное" */
 .details__container {
+  display: flex;
+  flex-direction: row;
   width: 63rem;
   height: 33.1rem;
   padding: 2rem;
   padding-left: 2.5rem;
-  background-color: #f7f7f7;
+  padding-bottom: 0;
+  background-color: var(--bg-color-main);
   background-image: url("assets/bg@1x.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   border-radius: 2rem;
-}
-
-.details__greeting {
-  font-weight: 700;
-  font-size: 2.7rem;
-  line-height: 1.148;
 }
 
 @media all and (-webkit-min-device-pixel-ratio: 1.5),
@@ -148,17 +156,106 @@ a:hover {
   }
 }
 
+.details__greeting {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  font-weight: 700;
+  font-size: 2.7rem;
+  line-height: 1.148;
+}
+
+.details__main {
+  width: 360px;
+}
+
+.details__main > *:not(:first-of-type) {
+  margin-top: 2.5rem;
+}
+
+/* блок "главное" — погода */
+.weather__container {
+  display: flex;
+  flex-direction: row wrap;
+}
+
+.weather:not(:first-of-type) {
+  margin-left: 1.8rem;
+}
+
+.weather__heading {
+  padding-bottom: 0.4rem;
+  color: var(--font-color-secondary);
+}
+
+.weather__temp {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 3.6rem;
+  text-align: left;
+}
+
+.weather__icon {
+  width: 26px;
+  height: 26px;
+  fill: inherit;
+}
+
+.details__scripts {
+  width: 200px;
+  margin-left: 2.5rem;
+}
+
+.secondary-nav {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding-left: 1.3rem;
+}
+
+/* переключатели */
+.nav-pill {
+  display: flex;
+  align-items: center;
+  padding-top: 0.7rem;
+  padding-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  padding-right: 1.3rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  background-color: var(--bg-color-main);
+  border-radius: 2rem;
+  box-shadow: 0 0.2rem 0.6rem 0 rgba(197, 186, 186, 0);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-pill:not(:last-of-type) {
+  margin-right: 1rem;
+}
+
+.nav-pill:hover {
+  background-color: #fff;
+  box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0.5);
+}
+
+.nav-pill--active {
+  color: #000;
+  background-color: var(--bg-color-accent);
+  box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0);
+}
+
 /* футер */
 .footer {
   height: 6.4rem;
   font-size: 1.2rem;
   letter-spacing: 0.01px;
-  color: #858585;
+  color: var(--font-color-secondary);
   text-align: left;
 }
 
 .footer__link {
-  color: #858585;
+  color: inherit;
   transition: color 0.3s ease;
 }
 
