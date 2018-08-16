@@ -29,7 +29,7 @@ gulp.task("css", function() {
 gulp.task("pug", function() {
   gulp
     .src("src/index.pug")
-    .pipe(pug({ pretty: true }))
+    .pipe(pug())
     .on("error", log)
     .pipe(gulp.dest("dist"))
     .pipe(browserSync.reload({ stream: true }));
