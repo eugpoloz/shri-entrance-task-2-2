@@ -57,7 +57,7 @@ gulp.task("watch", function() {
   gulp.watch("src/*.css", ["css"]);
   gulp.watch("src/index.pug", ["pug"]);
   gulp.watch("src/*.js", ["js"]);
-  gulp.watch("src/assets/*.*", ["copy"]);
+  gulp.watch("src/assets/*.*", ["assets"]);
 });
 
 // Set up the static server
