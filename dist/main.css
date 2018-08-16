@@ -73,7 +73,6 @@ a:hover {
   display: grid;
   grid-gap: 29px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   grid-template-areas: "details scripts" "devices devices";
 }
 
@@ -87,7 +86,7 @@ a:hover {
 }
 
 .header {
-  height: 16.5rem;
+  height: 9.2rem;
   border-bottom: 1px solid #F0F0F0;
 }
 
