@@ -251,7 +251,7 @@ a:hover {
   margin-left: 2.5rem;
 }
 
-.secondary-nav {
+.subnav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -266,7 +266,7 @@ a:hover {
 }
 
 /* переключатели */
-.nav-pill {
+.subnav__pill {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -290,17 +290,17 @@ a:hover {
   cursor: pointer;
 }
 
-.nav-pill:not(:last-of-type) {
+.subnav__pill:not(:last-of-type) {
   margin-right: 1rem;
 }
 
-.nav-pill:hover {
+.subnav__pill:hover {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0.5);
           box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0.5);
 }
 
-.nav-pill--active {
+.subnav__pill--active {
   color: #000;
   background-color: var(--bg-color-accent);
   -webkit-box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0);
