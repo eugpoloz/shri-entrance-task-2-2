@@ -1,0 +1,104 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css');
+
+/* дополнительная база */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+html {
+	font-size: 62.5%; /* rem = 10px */
+}
+
+body {
+  font-family: Arial, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  font-size: 1.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+a,
+a:link,
+a:hover,
+a:focus,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+/* основные контейнеры */
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 4rem;
+}
+
+.header,
+.footer {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.header {
+  height: 16.5rem;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+}
+
+/* футер */
+.footer {
+  height: 6.4rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.01px;
+  text-align: left;
+}
+
+.footer__link {
+  color: #858585;
+  -webkit-transition: color .3s ease;
+  transition: color .3s ease;
+}
+
+.footer__link:not(:last-of-type) {
+  margin-right: 1.5rem;
+}
+
+.footer__link:hover,
+.footer__link:active,
+.footer__link:focus {
+  color: #c00;
+}
