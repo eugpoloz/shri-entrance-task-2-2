@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,10 @@
     <title>Яндекс Дом</title>
     <link rel="stylesheet" href="main.css" type="text/css">
   </head>
+
   <body>
     <header class="header">
-      <div class="container">
+      <div class="container container--centered">
         <a class="header__logo" href="#" title="Яндекс Дом">
           <img src="assets/logo@1x.png" srcset="assets/logo@1x.png, assets/logo@2x.png 2x" alt="Яндекс Дом">
         </a>
@@ -28,10 +30,28 @@
       </div>
     </header>
     <section class="main">
-      <div class="container"></div>
+      <div class="container container--grid">
+        <article class="main__part main__part--small details">
+          <h1 class="main__heading">
+            Главное
+          </h1>
+          <div class="details__container">
+          </div>
+        </article>
+        <article class="main__part  main__part--small scripts">
+          <h1 class="main__heading">
+            Избранные сценарии
+          </h1>
+        </article>
+        <article class="main__part  main__part--big devices">
+          <h1 class="main__heading">
+            Избранные девайсы
+          </h1>
+        </article>
+      </div>
     </section>
     <footer class="footer">
-      <div class="container">
+      <div class="container container--centered">
         <a class="footer__link" href="#" title="Помощь" target="_blank">
           Помощь
         </a>
@@ -51,4 +71,5 @@
     </footer>
     <script src="main.js"></script>
   </body>
+
 </html>
