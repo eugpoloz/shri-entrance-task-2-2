@@ -1,7 +1,9 @@
 var gulp = require("gulp");
+var pug = require("gulp-pug");
 var log = require("fancy-log");
-// var imagemin = require("gulp-imagemin");
+var imagemin = require("gulp-imagemin");
 var browserSync = require("browser-sync").create();
+var imagemin = require("gulp-imagemin");
 var postcss = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
 
@@ -19,13 +21,16 @@ gulp.task("css", function() {
     .pipe(postcss([autoprefixer()]))
     .on("error", log)
     .pipe(gulp.dest("dist"))
+    .on("error", log)
     .pipe(browserSync.reload({ stream: true }));
 });
 
 //Pug Comp
-gulp.task("html", function() {
+gulp.task("pug", function() {
   gulp
-    .src("src/index.html")
+    .src("src/index.pug")
+    .pipe(pug({ pretty: true }))
+    .on("error", log)
     .pipe(gulp.dest("dist"))
     .pipe(browserSync.reload({ stream: true }));
 });
@@ -42,7 +47,7 @@ gulp.task("js", function() {
 gulp.task("assets", function() {
   gulp
     .src("src/assets/*.*")
-    // .pipe(imagemin())
+    .pipe(imagemin())
     .pipe(gulp.dest("dist/assets"))
     .pipe(browserSync.reload({ stream: true }));
 });
@@ -50,9 +55,9 @@ gulp.task("assets", function() {
 //Watch for changes
 gulp.task("watch", function() {
   gulp.watch("src/*.css", ["css"]);
-  gulp.watch("src/*.html", ["html"]);
+  gulp.watch("src/index.pug", ["pug"]);
   gulp.watch("src/*.js", ["js"]);
-  gulp.watch("src/assets/*.*", ["assets"]);
+  gulp.watch("src/assets/*.*", ["copy"]);
 });
 
 // Set up the static server
@@ -67,4 +72,4 @@ gulp.task("browser-sync", function() {
 });
 
 //Setting up the starter gulp package
-gulp.task("default", ["css", "html", "js", "assets", "browser-sync", "watch"]);
+gulp.task("default", ["css", "pug", "js", "assets", "browser-sync", "watch"]);

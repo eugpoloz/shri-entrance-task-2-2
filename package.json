@@ -18,12 +18,9 @@
     "gulp-connect": "latest",
     "gulp-imagemin": "latest",
     "gulp-postcss": "^8.0.0",
+    "gulp-pug": "latest",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "latest"
   },
-  "browserslist": [
-    "last 2 versions",
-    "not ie 11",
-    "not op_mini all"
-  ]
+  "browserslist": ["last 2 versions", "not ie 11", "not op_mini all"]
 }
