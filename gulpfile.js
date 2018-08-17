@@ -3,7 +3,7 @@ var pug = require("gulp-pug");
 var log = require("fancy-log");
 var imagemin = require("gulp-imagemin");
 var browserSync = require("browser-sync").create();
-var imagemin = require("gulp-imagemin");
+var svgo = require("gulp-svgo");
 var postcss = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
 
@@ -46,8 +46,9 @@ gulp.task("js", function() {
 //Copy assets
 gulp.task("assets", function() {
   gulp
-    .src("src/assets/*.*")
-    .pipe(imagemin())
+    .src("src/assets/*")
+    // .pipe(imagemin())
+    .pipe(svgo())
     .pipe(gulp.dest("dist/assets"))
     .pipe(browserSync.reload({ stream: true }));
 });
