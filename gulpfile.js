@@ -56,7 +56,7 @@ gulp.task("assets", function() {
 //Watch for changes
 gulp.task("watch", function() {
   gulp.watch("src/*.css", ["css"]);
-  gulp.watch("src/index.pug", ["pug"]);
+  gulp.watch("src/*.pug", ["pug"]);
   gulp.watch("src/*.js", ["js"]);
   gulp.watch("src/assets/*.*", ["assets"]);
 });

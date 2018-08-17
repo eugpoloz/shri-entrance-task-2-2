@@ -1,3 +1,5 @@
+include arrows.pug
+
 //- mixins
 //- links
 mixin link(title)
@@ -102,6 +104,9 @@ html
         article.main__part.main__part--small.scripts
           h2.main__heading
             | Избранные сценарии
+            .actions
+              +arrow_left()
+              +arrow_right()(class="action--available")
           .no-overflow
             .scripts__container
               +item("Выключить весь свет в доме и во дворе", "", "light", "active")
@@ -118,6 +123,9 @@ html
               +pill("Зал")
               +pill("Лампочки")
               +pill("Камеры")
+            .actions
+              +arrow_left()
+              +arrow_right()
           .devices__container
             +item_big("Xiaomi Yeelight LED Smart Bulb", "Включено", "light", "active")
             +item_big("D-Link Omna 180 Cam", "Включится в 17:00", "light")
