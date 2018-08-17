@@ -1,4 +1,5 @@
 //- mixins
+//- links
 mixin link(title)
   a(href="#" title=title)&attributes(attributes)= title
   
@@ -8,14 +9,44 @@ mixin link_main(title)
 mixin link_footer(title)
   +link(title)(class="footer__link")
   
-mixin item(name, info, icon)
-  div.item&attributes(attributes)
-    i.item__icon= icon
+//- icons
+mixin icon_light()
+img(src="assets/icon_sun.svg" alt="light")
+
+mixin icon_light_active()
+img(src="assets/icon_sun_active.svg" alt="light_active")
+
+mixin icon_temp()
+img(src="assets/icon_temperature.svg" alt="temp")
+
+mixin icon_temp_active()
+img(src="assets/icon_temperature_active.svg" alt="temp_active")
+  
+//- important stuff  
+mixin item(name, info, key, active)
+  div.item.has-hover&attributes(attributes)
+    i.item__icon
+      if key === "light"
+        if active 
+          +icon_light_active()
+        else
+          +icon_light()
+      else if key === "temp"
+        if active
+          +icon_temp_active()
+        else
+          +icon_temp()
+      else if block
+        block
     h3.item__name= name
     span.info.info--item= info
     
-mixin item_big(name, info, icon)
-  +item(name, info, icon)(class="item--big")
+mixin item_big(name, info, key, active)
+  +item(name, info, key, active)(class="item--big")
+    block
+  
+mixin pill(name)
+  .subnav__pill.has-hover&attributes(attributes)= name
     
 //- code
 
@@ -58,10 +89,11 @@ html
                   span.info
                     | За окном:
                   p.weather__temp
-                    | +19
+                    | +19&nbsp;
+                    img(src="assets/cloud-drizzle.svg")
             .details__scripts
-              +item_big("Philips Cooler", "Начнет охлаждать в 16:30")
-              +item_big("Xiaomi Yeelight LED Smart Bulb", "Включится в 17:00")
+              +item_big("Philips Cooler", "Начнет охлаждать в 16:30", "light")
+              +item_big("Xiaomi Yeelight LED Smart Bulb", "Включится в 17:00", "temp")
         article.main__part.main__part--small.scripts
           h2.main__heading
             | Избранные сценарии
@@ -69,11 +101,11 @@ html
           h2.main__heading
             | Избранные девайсы
             nav.subnav
-              .subnav__pill.subnav__pill--active Все
-              .subnav__pill Кухня
-              .subnav__pill Зал
-              .subnav__pill Лампочки
-              .subnav__pill Камеры
+              +pill("Все")(class="subnav__pill--active")
+              +pill("Кухня")
+              +pill("Зал")
+              +pill("Лампочки")
+              +pill("Камеры")
     footer.footer
       .container.container--centered
         +link_footer("Помощь")
