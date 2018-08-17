@@ -94,6 +94,10 @@ a:hover {
   color: var(--font-color-secondary);
 }
 
+.no-overflow {
+  overflow: hidden;
+}
+
 /* главное меню */
 .main-nav {
   padding-left: 5.2rem;
@@ -205,12 +209,36 @@ a:hover {
 }
 
 .details__scripts {
-  width: 200px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 20rem;
   margin-left: 2.5rem;
 }
 
-.details__scripts > div:not(:first-of-type) {
+.details-scripts__container {
+  height: 25.5rem;
+  overflow: auto;
+}
+
+.details-scripts__container > .item:not(:first-of-type) {
+  flex: 1;
   margin-top: 1.5rem;
+}
+
+.details-scripts__action {
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 20rem;
+  height: 4.1rem;
+  margin-top: auto;
+  color: var(--font-color-secondary);
+  background-color: var(--bg-color-main);
+  border-radius: 2rem 2rem 0 0;
 }
 
 .subnav {
@@ -285,10 +313,6 @@ a:hover {
 }
 
 /* сценарии - набор */
-.scripts .no-overflow {
-  width: 63rem;
-}
-
 .scripts__container {
   display: grid;
   grid-template-rows: repeat(3, 10rem);

@@ -115,6 +115,10 @@ a:hover {
   color: var(--font-color-secondary);
 }
 
+.no-overflow {
+  overflow: hidden;
+}
+
 /* главное меню */
 .main-nav {
   padding-left: 5.2rem;
@@ -250,12 +254,54 @@ a:hover {
 }
 
 .details__scripts {
-  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  width: 20rem;
   margin-left: 2.5rem;
 }
 
-.details__scripts > div:not(:first-of-type) {
+.details-scripts__container {
+  height: 25.5rem;
+  overflow: auto;
+}
+
+.details-scripts__container > .item:not(:first-of-type) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   margin-top: 1.5rem;
+}
+
+.details-scripts__action {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 20rem;
+  height: 4.1rem;
+  margin-top: auto;
+  color: var(--font-color-secondary);
+  background-color: var(--bg-color-main);
+  border-radius: 2rem 2rem 0 0;
 }
 
 .subnav {
@@ -349,10 +395,6 @@ a:hover {
 }
 
 /* сценарии - набор */
-.scripts .no-overflow {
-  width: 63rem;
-}
-
 .scripts__container {
   display: grid;
   grid-template-rows: repeat(3, 10rem);
