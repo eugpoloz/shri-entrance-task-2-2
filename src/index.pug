@@ -11,16 +11,19 @@ mixin link_footer(title)
   
 //- icons
 mixin icon_light()
-img(src="assets/icon_sun.svg" alt="light")
+  img(src="assets/icon_sun.svg" alt="light")
 
 mixin icon_light_active()
-img(src="assets/icon_sun_active.svg" alt="light_active")
+  img(src="assets/icon_sun_active.svg" alt="light_active")
 
 mixin icon_temp()
-img(src="assets/icon_temperature.svg" alt="temp")
+  img(src="assets/icon_temperature.svg" alt="temp")
 
 mixin icon_temp_active()
-img(src="assets/icon_temperature_active.svg" alt="temp_active")
+  img(src="assets/icon_temperature_active.svg" alt="temp_active")
+    
+mixin icon_timer()
+  img(src="assets/icon_scheduled.svg" alt="scheduled")
   
 //- important stuff  
 mixin item(name, info, key, active)
@@ -36,6 +39,8 @@ mixin item(name, info, key, active)
           +icon_temp_active()
         else
           +icon_temp()
+      else if key === "scheduled"
+        +icon_timer()
       else if block
         block
     h3.item__name= name
@@ -97,6 +102,12 @@ html
         article.main__part.main__part--small.scripts
           h2.main__heading
             | Избранные сценарии
+          .scripts__container
+            +item("Выключить весь свет в доме и во дворе", "", "light", "active")
+            +item("Я ухожу", "", "scheduled")
+            +item("Включить свет в коридоре", "", "light", "active")
+            +item("Набрать горячую ванну", "Начнется в 18:00", "temp", "active")
+            +item("Сделать пол тёплым во всей квартире", "", "temp")
         article.main__part.main__part--big.devices
           h2.main__heading
             | Избранные девайсы

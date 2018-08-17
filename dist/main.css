@@ -68,7 +68,9 @@ a:hover {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 100%;
+  max-width: 1366px;
   height: 100%;
+  margin: 0 auto;
   padding: 0 4rem;
 }
 
