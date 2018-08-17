@@ -102,12 +102,13 @@ html
         article.main__part.main__part--small.scripts
           h2.main__heading
             | Избранные сценарии
-          .scripts__container
-            +item("Выключить весь свет в доме и во дворе", "", "light", "active")
-            +item("Я ухожу", "", "scheduled")
-            +item("Включить свет в коридоре", "", "light", "active")
-            +item("Набрать горячую ванну", "Начнется в 18:00", "temp", "active")
-            +item("Сделать пол тёплым во всей квартире", "", "temp")
+          .no-overflow
+            .scripts__container
+              +item("Выключить весь свет в доме и во дворе", "", "light", "active")
+              +item("Я ухожу", "", "scheduled")
+              +item("Включить свет в коридоре", "", "light", "active")
+              +item("Набрать горячую ванну", "Начнется в 18:00", "temp", "active")
+              +item("Сделать пол тёплым во всей квартире", "", "temp")
         article.main__part.main__part--big.devices
           h2.main__heading
             | Избранные девайсы
@@ -117,6 +118,15 @@ html
               +pill("Зал")
               +pill("Лампочки")
               +pill("Камеры")
+          .devices__container
+            +item_big("Xiaomi Yeelight LED Smart Bulb", "Включено", "light", "active")
+            +item_big("D-Link Omna 180 Cam", "Включится в 17:00", "light")
+            +item_big("Elgato Eve Degree Connected", "Выключено до 17:00", "temp")
+            +item_big("LIFX Mini Day & Dusk A60 E27", "Включится в 17:00", "light")
+            +item_big("Xiaomi Mi Air Purifier 2S", "Включено", "light", "active")
+            +item_big("Philips Zhirui", "Выключено", "light")
+            +item_big("Xiaomi Mi Air Purifier 2S", "Включено", "light", "active")
+            +item_big("Philips Zhirui", "Выключено", "light")
     footer.footer
       .container.container--centered
         +link_footer("Помощь")

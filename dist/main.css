@@ -347,6 +347,46 @@ a:hover {
   font-size: 1.2rem;
 }
 
+/* сценарии - набор */
+.scripts .no-overflow {
+  width: 63rem;
+}
+
+.scripts__container {
+  display: grid;
+  grid-template-rows: repeat(3, 10rem);
+  grid-template-columns: repeat(3, 20rem);
+  grid-auto-flow: row;
+  grid-gap: 1.5rem;
+  width: 100%;
+  height: 33rem;
+  overflow: auto;
+}
+
+.devices__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  overflow: auto;
+}
+
+.devices__container > .item {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.devices__container > .item:not(:first-of-type) {
+  margin-left: 1.5rem;
+}
+
 /* футер */
 .footer {
   height: 6.4rem;
