@@ -1,10 +1,13 @@
 var gulp = require("gulp");
 var log = require("fancy-log");
+var sourcemaps = require("gulp-sourcemaps");
 var imagemin = require("gulp-imagemin");
 var browserSync = require("browser-sync").create();
 var svgo = require("gulp-svgo");
 var postcss = require("gulp-postcss");
+var csso = require("gulp-csso");
 var autoprefixer = require("autoprefixer");
+var htmlmin = require("gulp-htmlmin");
 
 // TODO: sourcemaps and uglify
 
@@ -17,16 +20,20 @@ gulp.task("log", function() {
 gulp.task("css", function() {
   gulp
     .src("src/styles/*.css")
+    .pipe(sourcemaps.init())
     .pipe(postcss([autoprefixer()]))
     .on("error", log)
-    .pipe(gulp.dest("dist/styles"))
+    .pipe(csso())
     .on("error", log)
+    .pipe(sourcemaps.write("."))
+    .pipe(gulp.dest("dist/styles"))
     .pipe(browserSync.reload({ stream: true }));
 });
 
 gulp.task("html", function() {
   gulp
     .src("src/index.html")
+    .pipe(htmlmin({ collapseWhitespace: true }))
     .on("error", log)
     .pipe(gulp.dest("dist"))
     .pipe(browserSync.reload({ stream: true }));

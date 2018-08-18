@@ -16,11 +16,12 @@
     "gulp": "latest",
     "gulp-concat": "latest",
     "gulp-connect": "latest",
+    "gulp-csso": "^3.0.1",
+    "gulp-htmlmin": "^4.0.0",
     "gulp-imagemin": "latest",
     "gulp-postcss": "^8.0.0",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-svgo": "^1.5.4",
-    "gulp-uglify": "latest"
+    "gulp-svgo": "^1.5.4"
   },
   "browserslist": [
     "last 2 versions",
