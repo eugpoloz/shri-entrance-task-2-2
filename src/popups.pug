@@ -3,7 +3,7 @@ include mixins.pug
 mixin light_controller()
   .controller__container
     .controller.controller--light
-      .controller__action
+      .controller__action.controller__action--slider
       i.controller__icon.controller__icon--min
         img(src="assets/icon_sun_min.svg" alt="min")
       i.controller__icon.controller__icon--max
@@ -12,9 +12,19 @@ mixin light_controller()
 mixin temp_controller()
   .controller__container
     .controller.controller--temp
-      .controller__action
+      .controller__action.controller__action--slider
       i.controller__icon.controller__icon--min -10
       i.controller__icon.controller__icon--max +30
+      
+mixin floor_controller()
+  .controller__container.controller__container--floor
+    .controller.controller--floor
+      <svg width="221" height="221" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <circle mask="url(#svg-mask-offset)" r="110.5" cx="110.5" cy="110.5" fill="transparent" stroke-width="48" stroke-dasharray="1,4" stroke="#F5A623"/>
+        <circle class="svg-mask-floor" r="110.5" cx="110.5" cy="110.5" fill="transparent" stroke-width="48" stroke="#f7f7f7" stroke-dasharray="694.291976,694.291976" stroke-dashoffset="578.576647" transform="rotate(59)" />
+        <circle r="135" cx="110.5" cy="110.5" fill="transparent" stroke-width="48" stroke="#f7f7f7"/>
+      .controller__action.controller__action--floor
+        | +23
       
 mixin popup()
   .overlay
@@ -38,30 +48,37 @@ mixin general_popup(name, status, type, additional, active)
         if active
           if type === "light"
             +icon_light_active()(style="width:42px;")
-          else if type === "temp"
+          else if (type === "temp" | type === "floor")
             +icon_temp_active()(style="width:42px;")
         else
           if type === "light"
             +icon_light()(style="width:42px;")
-          else if type === "temp"
+          else if (type === "temp" | type === "floor")
             +icon_temp()(style="width:42px;")
-    nav.subnav.subnav--popup
-      +pill("Вручную")(class="subnav__pill--popup subnav__pill--active")
-      if block
-        block
+    if block
+      block
     if type === "light"
       +light_controller()
     else if type === "temp"
       +temp_controller()
+    else if type === "floor"
+      +floor_controller()
         
 mixin popup_light_xiaomi()
   +general_popup("Xiaomi Yeelight LED Smart Bulb", "Включится в 17:00", "light")
-    +pill("Дневной свет")(class="subnav__pill--popup")
-    +pill("Вечерний свет")(class="subnav__pill--popup")
-    +pill("Рассвет")(class="subnav__pill--popup")
+    nav.subnav.subnav--popup
+      +pill("Вручную")(class="subnav__pill--popup subnav__pill--active")
+      +pill("Дневной свет")(class="subnav__pill--popup")
+      +pill("Вечерний свет")(class="subnav__pill--popup")
+      +pill("Рассвет")(class="subnav__pill--popup")
 
 mixin popup_temp_elgado()
   +general_popup("Elgato Eve Degree Connected", "Включено", "temp", "+23", true)
-    +pill("Холодно")(class="subnav__pill--popup")
-    +pill("Тепло")(class="subnav__pill--popup")
-    +pill("Жарко")(class="subnav__pill--popup")
+    nav.subnav.subnav--popup
+      +pill("Вручную")(class="subnav__pill--popup subnav__pill--active")
+      +pill("Холодно")(class="subnav__pill--popup")
+      +pill("Тепло")(class="subnav__pill--popup")
+      +pill("Жарко")(class="subnav__pill--popup")
+
+mixin popup_floor_xiaomi()
+  +general_popup("Xiaomi Warm Floor", "Включено", "floor", "+23", true)

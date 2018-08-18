@@ -63,25 +63,25 @@
   margin-bottom: 0;
 }
 
+.controller__container--floor {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 .controller {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   align-content: space-between;
-  height: 60px;
+  height: 6rem;
   width: 100%;
   padding: 0 1.5rem;
   border-radius: 3rem;
   overflow: hidden;
-}
-
-.controller__icon {
-  font-weight: 700;
-  font-size: 1.8rem;
-  color: #fff;
-  pointer-events: none;
-  user-select: none;
 }
 
 .controller--light {
@@ -98,18 +98,50 @@
   );
 }
 
+.controller--floor {
+  height: 22.1rem;
+  width: 22.1rem;
+  padding: 0;
+}
+
+.controller__icon {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #fff;
+  pointer-events: none;
+  user-select: none;
+}
+
 .controller__action {
   position: absolute;
-  top: 0;
   left: 50%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.controller__action--slider {
+  top: 0;
   transform: translateX(-50%);
   width: 6rem;
   height: 6rem;
   box-sizing: content-box;
   box-shadow: 0px 0px 0px 4px #fff,
     inset 0px 0px 0px 3px var(--font-color-main-alpha-1);
-  border-radius: 50%;
-  cursor: pointer;
+}
+
+.controller__action--floor {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 17.6rem;
+  height: 17.6rem;
+  font-weight: 700;
+  font-size: 6.6rem;
+  background: #fefefe;
+  box-shadow: 0 2px 4px 0 rgba(134, 121, 71, 0.45);
 }
 
 /* кнопки */
@@ -142,4 +174,8 @@
 
 .popup__button:not(:last-of-type) {
   margin-right: 2rem;
+}
+
+.svg-mask-floor {
+  transform-origin: 50% 50%;
 }
