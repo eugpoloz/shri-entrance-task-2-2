@@ -508,6 +508,7 @@ a:hover {
     align-items: center;
     height: auto;
     overflow: auto;
+    transition: all 0.3s ease;
   }
 
   .details-scripts__container:after,
