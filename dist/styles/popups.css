@@ -302,7 +302,7 @@
             flex-direction: column;
   }
 
-  .controller {
+  .controller:not(.controller--floor) {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;

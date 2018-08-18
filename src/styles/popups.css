@@ -215,7 +215,7 @@
     flex-direction: column;
   }
 
-  .controller {
+  .controller:not(.controller--floor) {
     flex: 1;
     width: 6rem;
     flex-direction: column;
