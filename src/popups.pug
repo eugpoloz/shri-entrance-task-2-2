@@ -3,30 +3,65 @@ include mixins.pug
 mixin light_controller()
   .controller__container
     .controller.controller--light
-      .controller__button
+      .controller__action
       i.controller__icon.controller__icon--min
-        img(src="assets/icon_sun_min.svg" alt="min")&attributes(attributes)
+        img(src="assets/icon_sun_min.svg" alt="min")
       i.controller__icon.controller__icon--max
-        img(src="assets/icon_sun_max.svg" alt="min")&attributes(attributes)
+        img(src="assets/icon_sun_max.svg" alt="min")
 
+mixin temp_controller()
+  .controller__container
+    .controller.controller--temp
+      .controller__action
+      i.controller__icon.controller__icon--min -10
+      i.controller__icon.controller__icon--max +30
+      
 mixin popup()
   .overlay
     .popup
       .popup__contents
-        .device-info
-          .device-info__general
-            h1.device-info__heading
-              | Xiaomi Yeelight LED Smart Bulb
-            p.device-info__status
-              | Включится в 17:00
-          .device-info__stats
-            +icon_light()(style="width:42px;")
-        nav.subnav.subnav--popup
-          +pill("Вручную")(class="subnav__pill--popup subnav__pill--active")
-          +pill("Дневной свет")(class="subnav__pill--popup")
-          +pill("Вечерний свет")(class="subnav__pill--popup")
-          +pill("Рассвет")(class="subnav__pill--popup")
-        +light_controller
+        if block
+          block
       .popup__actions
-        button.popup__button.popup__button--accent Применить
+        button.popup__button Применить
         button.popup__button Закрыть
+
+mixin general_popup(name, status, type, additional, active)
+  +popup()
+    .device-info
+      .device-info__general
+        h1.device-info__name= name
+        p.device-info__status= status
+      .device-info__stats
+        if additional
+          = additional
+        if active
+          if type === "light"
+            +icon_light_active()(style="width:42px;")
+          else if type === "temp"
+            +icon_temp_active()(style="width:42px;")
+        else
+          if type === "light"
+            +icon_light()(style="width:42px;")
+          else if type === "temp"
+            +icon_temp()(style="width:42px;")
+    nav.subnav.subnav--popup
+      +pill("Вручную")(class="subnav__pill--popup subnav__pill--active")
+      if block
+        block
+    if type === "light"
+      +light_controller()
+    else if type === "temp"
+      +temp_controller()
+        
+mixin popup_light_xiaomi()
+  +general_popup("Xiaomi Yeelight LED Smart Bulb", "Включится в 17:00", "light")
+    +pill("Дневной свет")(class="subnav__pill--popup")
+    +pill("Вечерний свет")(class="subnav__pill--popup")
+    +pill("Рассвет")(class="subnav__pill--popup")
+
+mixin popup_temp_elgado()
+  +general_popup("Elgato Eve Degree Connected", "Включено", "temp", "+23", true)
+    +pill("Холодно")(class="subnav__pill--popup")
+    +pill("Тепло")(class="subnav__pill--popup")
+    +pill("Жарко")(class="subnav__pill--popup")
