@@ -271,7 +271,7 @@
     <div class="overlay" id="popup">
       <div class="popup">
         <!-- попап-1 -->
-        <div class="popup__contents" id="popup_light">
+        <div class="popup__contents" id="popup_light" style="display: none;">
           <div class="device-info">
             <div class="device-info__general">
               <h1 class="device-info__name">Xiaomi Yeelight LED Smart Bulb</h1>
@@ -331,7 +331,7 @@
         </div>
 
         <!-- попап-3 -->
-        <div class="popup__contents" id="popup_floor" style="display: none;">
+        <div class="popup__contents" id="popup_floor">
           <div class="device-info">
             <div class="device-info__general">
               <h1 class="device-info__name">Xiaomi Warm Floor</h1>
@@ -344,11 +344,34 @@
           <div class="controller__container controller__container--floor">
             <div class="controller controller--floor">
               <svg width="221" height="221" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <circle mask="url(#svg-mask-offset)" r="110.5" cx="110.5" cy="110.5" fill="transparent" stroke-width="48" stroke-dasharray="1,4" stroke="#F5A623"/>
-                <circle class="svg-mask-floor" r="110.5" cx="110.5" cy="110.5" fill="transparent" stroke-width="48" stroke="#f7f7f7" stroke-dasharray="694.291976,694.291976" stroke-dashoffset="578.576647" transform="rotate(59)"/>
-                <circle r="135" cx="110.5" cy="110.5" fill="transparent" stroke-width="48" stroke="#f7f7f7"/>
+                <!-- оверлей поверх бэкграунда, чтобы не накладывалось -->
+                <mask id="svg-bg-overlay">
+                  <circle r="110.5" cx="110.5" cy="110.5" fill="#fff" stroke-width="48" stroke="#000" stroke-dasharray="500, 694.291976" stroke-dashoffset="0" transform="rotate(119, 110.5, 110.5)"/>
+                </mask>
+                <!-- бэкграунд -->
+                <circle r="110.5" cx="110.5" cy="110.5" fill="transparent" stroke-width="48" stroke-dasharray="1,4" stroke="#333333" mask="url(#svg-bg-overlay)" />
+
+                <!-- оверлей поверх активной t, чтобы не накладывалось -->
+                <mask id="svg-active-overlay">
+                  <circle r="110.5" cx="110.5" cy="110.5" fill="#fff" stroke-width="48" stroke="#000" stroke-dasharray="194.291976, 694.291976" stroke-dashoffset="0"
+                  transform="rotate(17, 110.5, 110.5)"/>
+                </mask>
+                <!-- активная температура -->
+                <circle r="110.5" cx="110.5" cy="110.5" fill="transparent" stroke-width="48" stroke-dasharray="1,4" stroke="#F5A623" stroke-dashoffset="110.5" mask="url(#svg-active-overlay)"/>
+
+                <!-- нижняя штука -->
+                <circle r="110.5" cx="110.5" cy="110.5" fill="transparent" stroke-width="48" stroke="#f7f7f7" stroke-dasharray="694.291976,694.291976" stroke-dashoffset="578.576647" transform="rotate(59, 110.5, 110.5)"/>
+                <!-- "маска" поверх всех -->
+                <circle r="134" cx="110.5" cy="110.5" fill="transparent" stroke-width="48" stroke="#f7f7f7"/>
               </svg>
-              <div class="controller__action controller__action--floor">+23</div>
+              <div class="controller__inner controller__inner--floor">
+                <div class="controller__action controller__action--floor">
+                  <i class="controller__icon controller__icon--floor"></i>
+                </div>
+                <span class="controller__info">
+                  +23
+                </span>
+              </div>
             </div>
           </div>
         </div>

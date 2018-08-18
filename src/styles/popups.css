@@ -141,8 +141,11 @@
     inset 0px 0px 0px 3px var(--font-color-main-alpha-1);
 }
 
+.controller__inner,
 .controller__action--floor {
+  position: absolute;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
@@ -150,10 +153,35 @@
   justify-content: center;
   width: 17.6rem;
   height: 17.6rem;
-  font-weight: 700;
-  font-size: 6.6rem;
+  border-radius: 50%;
+}
+
+.controller__inner {
   background: #fefefe;
   box-shadow: 0 2px 4px 0 rgba(134, 121, 71, 0.45);
+}
+
+.controller__action--floor {
+  transform: translate(-50%, -50%) rotate(109deg);
+}
+
+.controller__icon--floor {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-bottom-color: #333;
+  border-top: none;
+  border-radius: 1px;
+  z-index: 5;
+}
+
+.controller__info {
+  position: relative;
+  font-weight: 700;
+  font-size: 6.6rem;
+  z-index: 5;
 }
 
 /* кнопки */
@@ -187,10 +215,6 @@
 
 .popup__button:not(:last-of-type) {
   margin-right: 2rem;
-}
-
-.svg-mask-floor {
-  transform-origin: 50% 50%;
 }
 
 @media (max-width: 1365px) {
