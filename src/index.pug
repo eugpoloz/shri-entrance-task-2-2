@@ -44,14 +44,13 @@ html
                     | За окном:
                   p.weather__temp
                     | +19&nbsp;
-                    img(src="assets/cloud-drizzle.svg")
+                    img.weather__icon(src="assets/cloud-drizzle.svg")
             .details__scripts
-              .no-overflow
-                .details-scripts__container
-                  +item_big("Philips Cooler", "Начнет охлаждать в 16:30", "light")
-                  +item_big("Xiaomi Yeelight LED Smart Bulb", "Включится в 17:00", "temp")
-                  +item_big("Philips Cooler", "Начнет охлаждать в 16:30", "light")
-                  +item_big("Xiaomi Yeelight LED Smart Bulb", "Включится в 17:00", "temp")
+              .details-scripts__container
+                +item_big("Philips Cooler", "Начнет охлаждать в 16:30", "light")
+                +item_big("Xiaomi Yeelight LED Smart Bulb", "Включится в 17:00", "temp")
+                +item_big("Philips Cooler", "Начнет охлаждать в 16:30", "light")
+                +item_big("Xiaomi Yeelight LED Smart Bulb", "Включится в 17:00", "temp")
               .details-scripts__action
                 +arrow_doubleup()
         article.main__part.main__part--small.scripts
@@ -70,8 +69,8 @@ html
         article.main__part.main__part--big.devices
           h2.main__heading
             | Избранные девайсы
-            .no_overflow
-              nav.subnav
+            nav.subnav
+              .subnav__container
                 +pill("Все")(class="subnav__pill--active")
                 +pill("Кухня")
                 +pill("Зал")
@@ -98,5 +97,4 @@ html
         +link_footer("Условия использования")
         span.footer__copyright
           | © 2001–2017   ООО «Яндекс»
-    +popup_light_xiaomi()
     script(src="main.js")

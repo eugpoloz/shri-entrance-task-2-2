@@ -1,6 +1,4 @@
 .overlay {
-  --shared-padding: 2.5rem;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -247,7 +245,6 @@
 
 @media (max-width: 1365px) {
   .overlay {
-    --shared-padding: 2rem;
     padding: 2rem;
   }
 

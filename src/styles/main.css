@@ -9,7 +9,6 @@
 
 body,
 html {
-  overflow: hidden;
   min-height: 100vh;
 }
 
@@ -25,6 +24,7 @@ body {
   --font-color-secondary: #858585;
   --bg-color-main: #f7f7f7;
   --bg-color-accent: #ffd93e;
+  --shared-padding: 2.5rem;
 
   /* declarations */
   display: flex;
@@ -70,7 +70,7 @@ a:hover {
 
 .container--grid {
   display: grid;
-  grid-gap: 29px;
+  grid-gap: 1.7rem;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "details scripts" "devices devices";
 }
@@ -84,6 +84,10 @@ a:hover {
 .header {
   height: 9.2rem;
   border-bottom: 1px solid #f0f0f0;
+}
+
+.header__logo {
+  margin-left: 0.6rem;
 }
 
 .main {
@@ -138,7 +142,9 @@ a:hover {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  padding-bottom: 2rem;
+  padding: 0.6rem;
+  padding-top: 0;
+  padding-bottom: 1.4rem;
   font-weight: bold;
   font-size: 1.8rem;
   line-height: 1.167;
@@ -150,9 +156,9 @@ a:hover {
   flex-direction: row;
   width: 63rem;
   height: 33.1rem;
-  padding: 2rem;
-  padding-left: 2.5rem;
-  padding-bottom: 0;
+  margin: 0.6rem;
+  margin-bottom: 0;
+  margin-left: 0;
   background-color: var(--bg-color-main);
   background-image: url("../assets/bg@1x.png");
   background-repeat: no-repeat;
@@ -170,6 +176,12 @@ a:hover {
   }
 }
 
+.details__header {
+  padding: 2rem;
+  padding-left: var(--shared-padding);
+  padding-bottom: 0;
+}
+
 .details__greeting {
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
@@ -182,14 +194,12 @@ a:hover {
   width: 360px;
 }
 
-.details__main > *:not(:first-of-type) {
-  margin-top: 2.1rem;
-}
-
 /* блок "главное" — погода */
 .weather__container {
   display: flex;
   flex-direction: row wrap;
+  padding: var(--shared-padding);
+  padding-bottom: 0;
 }
 
 .weather:not(:first-of-type) {
@@ -215,16 +225,17 @@ a:hover {
   flex-direction: column;
   flex-wrap: nowrap;
   width: 20rem;
-  margin-left: 2.5rem;
+  margin-left: var(--shared-padding);
 }
 
 .details-scripts__container {
-  height: 25.5rem;
+  height: 27.5rem;
+  padding-top: 2rem;
+  padding-bottom: 0.6rem;
   overflow: auto;
 }
 
 .details-scripts__container > .item:not(:first-of-type) {
-  flex: 1;
   margin-top: 1.5rem;
 }
 
@@ -244,7 +255,7 @@ a:hover {
 }
 
 .subnav {
-  padding-left: 1.3rem;
+  padding-left: 0.7rem;
   overflow: hidden;
   max-width: calc(100vw - 4rem);
 }
@@ -254,6 +265,7 @@ a:hover {
   flex-flow: row nowrap;
   align-items: center;
   overflow: auto;
+  padding: 0.6rem;
 }
 
 .subnav__container > * {
@@ -262,7 +274,7 @@ a:hover {
 }
 
 .subnav--popup {
-  padding-left: 2.5rem;
+  padding-left: var(--shared-padding);
 }
 
 /* наведение */
@@ -312,6 +324,7 @@ a:hover {
   height: 10rem;
   padding: 1.4rem;
   padding-bottom: 1rem;
+  font-size: 1.4rem;
   background-color: var(--bg-color-main);
   border-radius: 2rem;
   cursor: pointer;
@@ -342,6 +355,7 @@ a:hover {
   grid-gap: 1.5rem;
   width: 100%;
   height: 33rem;
+  padding: 0.6rem;
   overflow: auto;
 }
 
@@ -351,6 +365,7 @@ a:hover {
   align-items: center;
   width: 100%;
   overflow: auto;
+  padding: 0.6rem;
 }
 
 .devices__container > .item {
@@ -402,7 +417,120 @@ a:hover {
 
 @media (max-width: 1365px) {
   body {
+    --shared-padding: 2rem;
     font-size: 1.2rem;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .header .container,
+  .footer .container {
+    padding: 0 2rem;
+  }
+
+  .container--grid {
+    display: flex;
+  }
+
+  .main {
+    padding-top: 0;
+  }
+
+  .main__part--small,
+  .main__part--big {
+    flex-basis: 100%;
+    max-width: 100vw;
+  }
+
+  .main__heading {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .info {
+    padding-bottom: 0.5rem;
+  }
+
+  .header {
+    height: 6.4rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: none;
+  }
+
+  .details__main,
+  .details__container {
+    width: 100%;
+  }
+
+  .details__container {
+    flex-direction: column;
+    height: auto;
+    overflow: hidden;
+    margin: 0 2rem;
+    max-width: calc(100vw - 4rem);
+  }
+
+  .details__scripts {
+    width: 100%;
+    margin-left: 0;
+    margin: var(--shared-padding) 0;
+    overflow: hidden;
+  }
+
+  .details-scripts__container {
+    padding-top: 0;
+  }
+
+  .details-scripts__container > .item:not(:first-of-type) {
+    margin-top: 0;
+  }
+
+  .details-scripts__container,
+  .scripts__container,
+  .devices__container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: auto;
+    overflow: auto;
+  }
+
+  .details-scripts__container:after,
+  .scripts__container:after,
+  .devices__container:after {
+    content: "";
+    width: 2rem;
+    height: 1px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  .details-scripts__container > .item,
+  .item {
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-left: 1.5rem;
+  }
+
+  .main__heading {
+    padding-top: 3.1rem;
+  }
+
+  .main__heading,
+  .details__greeting {
+    font-size: 1.8rem;
+  }
+
+  .weather__temp {
+    font-size: 2.4rem;
+  }
+
+  .weather__icon {
+    width: 18px;
+    height: auto;
   }
 
   .subnav--popup {
@@ -411,5 +539,18 @@ a:hover {
 
   .subnav__pill {
     font-weight: 300;
+  }
+
+  .footer {
+    padding: 0.5rem;
+    margin-top: var(--shared-padding);
+  }
+
+  /* display: none */
+  .main-nav,
+  .details .main__heading,
+  .details-scripts__action,
+  .actions {
+    display: none;
   }
 }
