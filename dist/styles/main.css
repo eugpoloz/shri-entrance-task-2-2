@@ -669,3 +669,7 @@ a:hover {
     display: none;
   }
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
