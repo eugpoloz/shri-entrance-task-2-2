@@ -51,8 +51,10 @@ gulp.task("js", function() {
 gulp.task("assets", function() {
   gulp
     .src("src/assets/*")
-    // .pipe(imagemin())
+    .pipe(imagemin())
+    .on("error", log)
     .pipe(svgo())
+    .on("error", log)
     .pipe(gulp.dest("dist/assets"))
     .pipe(browserSync.reload({ stream: true }));
 });
