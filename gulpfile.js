@@ -17,10 +17,10 @@ gulp.task("log", function() {
 //CSS & Autoprefixer Comp
 gulp.task("css", function() {
   gulp
-    .src("src/*.css")
+    .src("src/styles/*.css")
     .pipe(postcss([autoprefixer()]))
     .on("error", log)
-    .pipe(gulp.dest("dist"))
+    .pipe(gulp.dest("dist/styles"))
     .on("error", log)
     .pipe(browserSync.reload({ stream: true }));
 });
@@ -55,7 +55,7 @@ gulp.task("assets", function() {
 
 //Watch for changes
 gulp.task("watch", function() {
-  gulp.watch("src/*.css", ["css"]);
+  gulp.watch("src/styles/*.css", ["css"]);
   gulp.watch("src/*.pug", ["pug"]);
   gulp.watch("src/*.js", ["js"]);
   gulp.watch("src/assets/*.*", ["assets"]);

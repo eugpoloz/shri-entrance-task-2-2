@@ -1,0 +1,32 @@
+include mixins.pug
+
+mixin light_controller()
+  .controller__container
+    .controller.controller--light
+      .controller__button
+      i.controller__icon.controller__icon--min
+        img(src="assets/icon_sun_min.svg" alt="min")&attributes(attributes)
+      i.controller__icon.controller__icon--max
+        img(src="assets/icon_sun_max.svg" alt="min")&attributes(attributes)
+
+mixin popup()
+  .overlay
+    .popup
+      .popup__contents
+        .device-info
+          .device-info__general
+            h1.device-info__heading
+              | Xiaomi Yeelight LED Smart Bulb
+            p.device-info__status
+              | Включится в 17:00
+          .device-info__stats
+            +icon_light()(style="width:42px;")
+        nav.subnav.subnav--popup
+          +pill("Вручную")(class="subnav__pill--popup subnav__pill--active")
+          +pill("Дневной свет")(class="subnav__pill--popup")
+          +pill("Вечерний свет")(class="subnav__pill--popup")
+          +pill("Рассвет")(class="subnav__pill--popup")
+        +light_controller
+      .popup__actions
+        button.popup__button.popup__button--accent Применить
+        button.popup__button Закрыть
