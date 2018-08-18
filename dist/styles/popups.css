@@ -1,4 +1,6 @@
 .overlay {
+  --shared-padding: 2.5rem;
+
   position: fixed;
   top: 0;
   left: 0;
@@ -35,7 +37,7 @@
 
 .popup__contents {
   padding-top: 2.6rem;
-  padding-bottom: 2.5rem;
+  padding-bottom: var(--shared-padding);
 }
 
 /* о девайсе */
@@ -55,8 +57,8 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding-left: var(--shared-padding);
+  padding-right: var(--shared-padding);
   margin-bottom: 2rem;
 }
 
@@ -84,7 +86,7 @@
 
 /* контроллер */
 .controller__container {
-  margin: 2.5rem;
+  margin: var(--shared-padding);
   margin-bottom: 0;
 }
 
@@ -118,12 +120,12 @@
       align-content: space-between;
   height: 6rem;
   width: 100%;
-  padding: 0 1.5rem;
   border-radius: 3rem;
   overflow: hidden;
 }
 
 .controller--light {
+  padding: 0 1.5rem;
   background-image: linear-gradient(85deg, #ffe682 2%, #ff9e00 98%);
 }
 
@@ -241,4 +243,113 @@
 .svg-mask-floor {
   -webkit-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
+}
+
+@media (max-width: 1365px) {
+  .overlay {
+    --shared-padding: 2rem;
+    padding: 2rem;
+  }
+
+  .popup {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+  }
+
+  .popup__contents,
+  .popup__button {
+    width: 100%;
+  }
+
+  .popup__contents {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    height: 100%;
+  }
+
+  .popup__contents > * {
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+  }
+
+  .controller__container {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .controller {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    width: 6rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+
+  .controller--light {
+    padding: 1rem 0;
+    background-image: linear-gradient(175deg, #ffe682 2%, #ff9e00 98%);
+  }
+
+  .controller--temp {
+    padding: 2rem 0;
+    background-image: -webkit-gradient(
+      linear,
+      left top, left bottom,
+      color-stop(2%, #068fff),
+      color-stop(51%, #ffd800),
+      to(#f76b1c)
+    );
+    background-image: linear-gradient(
+      180deg,
+      #068fff 2%,
+      #ffd800 51%,
+      #f76b1c 100%
+    );
+  }
+
+  .popup__actions,
+  .popup__button:not(:first-of-type) {
+    margin-top: 1.5rem;
+  }
+
+  .device-info__name {
+    font-size: 1.8rem;
+  }
+
+  .device-info__stats {
+    display: none;
+  }
 }

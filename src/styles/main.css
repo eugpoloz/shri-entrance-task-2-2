@@ -9,6 +9,7 @@
 
 body,
 html {
+  overflow: hidden;
   min-height: 100vh;
 }
 
@@ -243,16 +244,27 @@ a:hover {
 }
 
 .subnav {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
   padding-left: 1.3rem;
+  overflow: hidden;
+  max-width: calc(100vw - 4rem);
+}
+
+.subnav__container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
   overflow: auto;
+}
+
+.subnav__container > * {
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .subnav--popup {
   padding-left: 2.5rem;
 }
+
 /* наведение */
 .has-hover {
   box-shadow: 0 0.2rem 0.6rem 0 rgba(197, 186, 186, 0);
@@ -386,4 +398,18 @@ a:hover {
 
 .footer__copyright {
   margin-left: auto;
+}
+
+@media (max-width: 1365px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  .subnav--popup {
+    padding-left: 2rem;
+  }
+
+  .subnav__pill {
+    font-weight: 300;
+  }
 }

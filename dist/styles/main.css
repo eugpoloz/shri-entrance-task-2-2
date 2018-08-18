@@ -10,6 +10,7 @@
 
 body,
 html {
+  overflow: hidden;
   min-height: 100vh;
 }
 
@@ -306,23 +307,37 @@ a:hover {
 }
 
 .subnav {
+  padding-left: 1.3rem;
+  overflow: hidden;
+  max-width: calc(100vw - 4rem);
+}
+
+.subnav__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 1.3rem;
   overflow: auto;
+}
+
+.subnav__container > * {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .subnav--popup {
   padding-left: 2.5rem;
 }
+
 /* наведение */
 .has-hover {
   -webkit-box-shadow: 0 0.2rem 0.6rem 0 rgba(197, 186, 186, 0);
@@ -481,4 +496,18 @@ a:hover {
 
 .footer__copyright {
   margin-left: auto;
+}
+
+@media (max-width: 1365px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  .subnav--popup {
+    padding-left: 2rem;
+  }
+
+  .subnav__pill {
+    font-weight: 300;
+  }
 }

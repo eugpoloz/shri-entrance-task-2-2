@@ -70,12 +70,13 @@ html
         article.main__part.main__part--big.devices
           h2.main__heading
             | Избранные девайсы
-            nav.subnav
-              +pill("Все")(class="subnav__pill--active")
-              +pill("Кухня")
-              +pill("Зал")
-              +pill("Лампочки")
-              +pill("Камеры")
+            .no_overflow
+              nav.subnav
+                +pill("Все")(class="subnav__pill--active")
+                +pill("Кухня")
+                +pill("Зал")
+                +pill("Лампочки")
+                +pill("Камеры")
             .actions
               +arrow_left()
               +arrow_right()(class="action--available")
@@ -97,5 +98,5 @@ html
         +link_footer("Условия использования")
         span.footer__copyright
           | © 2001–2017   ООО «Яндекс»
-    +popup_floor_xiaomi()
+    +popup_light_xiaomi()
     script(src="main.js")

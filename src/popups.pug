@@ -66,19 +66,21 @@ mixin general_popup(name, status, type, additional, active)
         
 mixin popup_light_xiaomi()
   +general_popup("Xiaomi Yeelight LED Smart Bulb", "Включится в 17:00", "light")
-    nav.subnav.subnav--popup
-      +pill("Вручную")(class="subnav__pill--popup subnav__pill--active")
-      +pill("Дневной свет")(class="subnav__pill--popup")
-      +pill("Вечерний свет")(class="subnav__pill--popup")
-      +pill("Рассвет")(class="subnav__pill--popup")
+      .subnav.subnav--popup
+        .subnav__container
+          +pill("Вручную")(class="subnav__pill--popup subnav__pill--active")
+          +pill("Дневной свет")(class="subnav__pill--popup")
+          +pill("Вечерний свет")(class="subnav__pill--popup")
+          +pill("Рассвет")(class="subnav__pill--popup")
 
 mixin popup_temp_elgado()
   +general_popup("Elgato Eve Degree Connected", "Включено", "temp", "+23", true)
-    nav.subnav.subnav--popup
-      +pill("Вручную")(class="subnav__pill--popup subnav__pill--active")
-      +pill("Холодно")(class="subnav__pill--popup")
-      +pill("Тепло")(class="subnav__pill--popup")
-      +pill("Жарко")(class="subnav__pill--popup")
+      .subnav.subnav--popup
+        .subnav__container
+          +pill("Вручную")(class="subnav__pill--popup subnav__pill--active")
+          +pill("Холодно")(class="subnav__pill--popup")
+          +pill("Тепло")(class="subnav__pill--popup")
+          +pill("Жарко")(class="subnav__pill--popup")
 
 mixin popup_floor_xiaomi()
   +general_popup("Xiaomi Warm Floor", "Включено", "floor", "+23", true)
