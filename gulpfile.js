@@ -1,5 +1,4 @@
 var gulp = require("gulp");
-var pug = require("gulp-pug");
 var log = require("fancy-log");
 var imagemin = require("gulp-imagemin");
 var browserSync = require("browser-sync").create();
@@ -25,11 +24,9 @@ gulp.task("css", function() {
     .pipe(browserSync.reload({ stream: true }));
 });
 
-//Pug Comp
-gulp.task("pug", function() {
+gulp.task("html", function() {
   gulp
-    .src("src/index.pug")
-    .pipe(pug())
+    .src("src/index.html")
     .on("error", log)
     .pipe(gulp.dest("dist"))
     .pipe(browserSync.reload({ stream: true }));
@@ -56,7 +53,7 @@ gulp.task("assets", function() {
 //Watch for changes
 gulp.task("watch", function() {
   gulp.watch("src/styles/*.css", ["css"]);
-  gulp.watch("src/*.pug", ["pug"]);
+  gulp.watch("src/*.html", ["html"]);
   gulp.watch("src/*.js", ["js"]);
   gulp.watch("src/assets/*.*", ["assets"]);
 });
@@ -73,4 +70,4 @@ gulp.task("browser-sync", function() {
 });
 
 //Setting up the starter gulp package
-gulp.task("default", ["css", "pug", "js", "assets", "browser-sync", "watch"]);
+gulp.task("default", ["css", "html", "js", "assets", "browser-sync", "watch"]);
