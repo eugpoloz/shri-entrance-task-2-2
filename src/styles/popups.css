@@ -146,6 +146,7 @@
 
 /* кнопки */
 .popup__actions {
+  display: flex;
   margin-top: 2rem;
 }
 
@@ -240,6 +241,10 @@
   .popup__actions,
   .popup__button:not(:first-of-type) {
     margin-top: 1.5rem;
+  }
+
+  .popup__actions {
+    flex-direction: column;
   }
 
   .device-info__name {
