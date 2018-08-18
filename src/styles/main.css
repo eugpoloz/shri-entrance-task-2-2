@@ -260,8 +260,10 @@ a:hover {
 }
 
 .subnav {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
   padding-left: 0.7rem;
-  overflow: hidden;
   max-width: calc(100vw - 4rem);
 }
 
@@ -459,10 +461,15 @@ a:hover {
   }
 
   .header {
+    position: sticky;
+    top: 0;
+    left: 0;
     height: 6.4rem;
     padding-top: 1.2rem;
     padding-bottom: 1.2rem;
     border-bottom: none;
+    background-color: #fff;
+    z-index: 10;
   }
 
   .details__main,
@@ -542,8 +549,45 @@ a:hover {
     padding-left: 2rem;
   }
 
+  .subnav--devices {
+    position: relative;
+    padding-left: 0.7rem;
+    margin-left: auto;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .subnav__container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    transform: translateY(0.6rem);
+    padding: 0.6rem;
+    background-color: #fff;
+    border-radius: 2rem;
+    z-index: 10;
+  }
+
+  .subnav__pill--controller {
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .subnav--devices:hover .subnav__container {
+    display: block;
+  }
+
   .subnav__pill {
     font-weight: 300;
+  }
+
+  .subnav__pill--devices,
+  .subnav__pill--devices:not(:last-of-type) {
+    margin-top: 0.6rem;
+    margin-right: 0;
+    padding-right: 1.5rem;
+    font-weight: 700;
   }
 
   .footer {
@@ -566,6 +610,7 @@ a:hover {
     padding: var(--shared-padding);
     background-color: var(--bg-color-main);
     border-top: 1px solid #f0f0f0;
+    z-index: 10;
   }
 
   .main-nav__link {
@@ -596,7 +641,12 @@ a:hover {
 }
 
 @media (min-width: 1366px) {
-  .main-nav__icon {
+  .subnav {
+    overflow: hidden;
+  }
+
+  .main-nav__icon,
+  .subnav__pill--controller {
     display: none;
   }
 }
